@@ -28,7 +28,7 @@ module.exports = {
 	'admin/login': 'admin/admin_mgr_controller@adminLogin',
 	'admin/mgr_list': 'admin/admin_mgr_controller@getMgrList',
 	'admin/mgr_insert': 'admin/admin_mgr_controller@insertMgr',
-	'admin/mgr_del': 'admin/admin_mgr_controller@delMgr#demo',
+	'admin/mgr_del': 'admin/admin_mgr_controller@delMgr',
 	'admin/mgr_detail': 'admin/admin_mgr_controller@getMgrDetail',
 	'admin/mgr_edit': 'admin/admin_mgr_controller@editMgr#demo',
 	'admin/mgr_status': 'admin/admin_mgr_controller@statusMgr#demo',

@@ -155,7 +155,13 @@ class AdminMgrService extends BaseProjectAdminService {
 
 	/** 删除管理员 */
 	async delMgr(id, myAdminId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		let where = {
+			_id: id,
+		}
+		let effect = await AdminModel.del(where);
+		return {
+			effect
+		};
 	}
 
 	/** 添加新的管理员 */
@@ -165,7 +171,6 @@ class AdminMgrService extends BaseProjectAdminService {
 		phone,
 		password
 	}) {
-		// this.AppError('该功能暂不开放');
 		// 判断是否存在
 		let where = {
 			ADMIN_NAME: name
