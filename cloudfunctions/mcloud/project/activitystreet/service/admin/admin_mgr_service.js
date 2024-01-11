@@ -253,8 +253,23 @@ class AdminMgrService extends BaseProjectAdminService {
 
 	/** 修改自身密码 */
 	async pwdtMgr(adminId, oldPassword, password) {
+		let whereOldPwd = {
+			_id: adminId,
+			ADMIN_PASSWORD: md5Lib.md5(oldPassword)
+		}
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		let admin = await AdminModel.getOne(whereOldPwd);
+		if (!admin) this.AppError('旧密码输入错误')
+
+		let where = {
+			_id: adminId
+		}
+
+		let data = {
+			ADMIN_PASSWORD: md5Lib.md5(password)
+		};
+
+		await AdminModel.edit(where, data);
 	}
 }
 
