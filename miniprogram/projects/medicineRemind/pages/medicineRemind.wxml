@@ -1,0 +1,5 @@
+<!--projects/medicineRemind/pages/medicineRemind.wxml-->
+<button bindtap="getOpenId">获取用户openid</button>
+<button bindtap="shouquan">获取用户授权</button>
+<input placeholder="请输入药品名称" bindinput="inputMedicineName"></input>
+<button bindtap="sendtoUser">发送消息</button>
