@@ -191,9 +191,18 @@ class AdminMgrService extends BaseProjectAdminService {
 	}
 
 	/** 修改状态 */
-	async statusMgr(id, status, myAdminId) {
-		//this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
-		this.AppError('err');
+	async statusMgr(id, status) {
+		let where = {
+			_id: id
+		}
+		let admin = await AdminModel.getOne(where);
+		if (!admin) return;
+
+		let data = {
+			ADMIN_STATUS: status
+		};
+
+		await AdminModel.edit(where, data);
 	} 
  
 
