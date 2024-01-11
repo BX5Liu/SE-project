@@ -134,7 +134,7 @@ module.exports = {
 	'admin/activity_insert': 'admin/admin_activity_controller@insertActivity',
 	'admin/activity_detail': 'admin/admin_activity_controller@getActivityDetail',
 	'admin/activity_edit': 'admin/admin_activity_controller@editActivity',
-	'admin/activity_update_forms': 'admin/admin_activity_controller@updateActivityForms#demo',
+	'admin/activity_update_forms': 'admin/admin_activity_controller@updateActivityForms',
 	'admin/activity_clear': 'admin/admin_activity_controller@clearActivityAll#demo',
 	'admin/activity_del': 'admin/admin_activity_controller@delActivity#demo',
 	'admin/activity_sort': 'admin/admin_activity_controller@sortActivity#demo',

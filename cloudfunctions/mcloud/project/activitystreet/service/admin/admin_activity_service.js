@@ -176,7 +176,8 @@ class AdminActivityService extends BaseProjectAdminService {
 		id,
 		hasImageForms
 	}) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+    
+    await ActivityModel.editForms(id, 'ACTIVITY_FORMS','ACTIVITY_OBJ', hasImageForms);
  
 	}
 
@@ -204,7 +205,6 @@ class AdminActivityService extends BaseProjectAdminService {
 		joinForms
 	}) { 
 
-    // this.AppError('该功能暂不开放');
     let where = {
       _id: id
     }
