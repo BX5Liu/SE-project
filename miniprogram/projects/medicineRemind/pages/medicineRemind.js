@@ -6,7 +6,6 @@ Page({
 	 */
 	data: {
     name:"null",
-    remindTime:"",
     medicinename:''
 	},
 
@@ -68,7 +67,7 @@ Page({
   //获取用户openid
   getOpenId:function(e){
     wx.cloud.callFunction({
-      name:"getopenid-1"
+      name:"getopenid-1",
     }).then(res=>{
       console.log("获取openid成功",res)
     }).catch(res=>{
@@ -91,9 +90,16 @@ Page({
   inputMedicineName:function(e){
     this.data.medicinename=e.detail.value
   },
-  //选择提醒时间
-  //发送消息
-  sendtoUser:function(e){
+  //提交药品名称
+  submitMedName:function(e){
+    // wx.cloud.database().collection("bx_medicine").where({}).get({
+    //   success(res) {
+    //     console.log("数据库API获取数据成功！", res)
+    //     },
+    //     fail(res) {
+    //     console.log("数据库API获取数据失败！", res)
+    //     }
+    // })
     if(this.data.medicinename==null||this.data.medicinename==''){
       wx.showToast({
         icon:"none",
@@ -101,17 +107,15 @@ Page({
       })
       return
     }
-    wx.cloud.callFunction({
-      name:"send",
-      data:{
-        openid:"ogOXC5NIb2E1KhQ11RDLBQtbvfoM",
-        medicinename:this.data.medicinename
+    wx.cloud.database().collection('bx_medicine').doc('1').update({
+      // data 传入需要局部更新的数据
+      data: {
+        medicinename: this.data.medicinename,
+      },
+      success: function(res) {
+        console.log("数据库修改数据成功！",res)
       }
-    }).then(res=>{
-      console.log("发送成功",res)
-    }).catch(res=>{
-      console.log("发送失败",res)
     })
-  }
+  },
 })
 
