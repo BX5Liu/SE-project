@@ -138,7 +138,7 @@ class AdminMgrController extends BaseProjectAdminController {
 		await contentCheck.checkTextMultiAdmin(input);
 
 		let service = new AdminMgrService();
-		await service.editMgr(input.id, input);
+		await service.editMgr(input);
 	}
 
 	/** 修改自己的密码 */
