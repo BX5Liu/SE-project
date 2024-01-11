@@ -131,7 +131,7 @@ module.exports = {
 	'activity/my_join_self': 'activity_controller@myJoinSelf',
 
 	'admin/activity_list': 'admin/admin_activity_controller@getAdminActivityList',
-	'admin/activity_insert': 'admin/admin_activity_controller@insertActivity#demo',
+	'admin/activity_insert': 'admin/admin_activity_controller@insertActivity',
 	'admin/activity_detail': 'admin/admin_activity_controller@getActivityDetail',
 	'admin/activity_edit': 'admin/admin_activity_controller@editActivity#demo',
 	'admin/activity_update_forms': 'admin/admin_activity_controller@updateActivityForms#demo',

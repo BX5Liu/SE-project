@@ -115,7 +115,8 @@ class AdminActivityService extends BaseProjectAdminService {
 	async insertActivity({
 		title,
 		cateId,
-		cateName,
+    cateName,
+    order,
 
 		maxCnt,
 		start,
@@ -129,12 +130,31 @@ class AdminActivityService extends BaseProjectAdminService {
 		checkSet,
 		isMenu,
 
-		order,
 		forms,
 		joinForms,
 	}) {
-
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+    
+		let data = {
+      ACTIVITY_TITLE: title,
+      ACTIVITY_CATE_ID: cateId,
+			ACTIVITY_CATE_NAME: cateName,
+			ACTIVITY_MAX_CNT: maxCnt,
+      ACTIVITY_START: timeUtil.time2Timestamp(start),
+      ACTIVITY_END: timeUtil.time2Timestamp(end),
+      ACTIVITY_STOP: timeUtil.time2Timestamp(stop),
+      ACTIVITY_ADDRESS: address,
+      ACTIVITY_ADDRESS_GEO: addressGeo,
+      ACTIVITY_CANCEL_SET: cancelSet,
+      ACTIVITY_CHECK_SET: checkSet,
+      ACTIVITY_IS_MENU: isMenu,
+      ACTIVITY_ORDER: order,
+      ACTIVITY_FORMS: forms,
+      ACTIVITY_JOIN_FORMS: joinForms
+		}
+    let id = await ActivityModel.insert(data);
+    return {
+      id
+    };
 	}
 
 	//#############################   
