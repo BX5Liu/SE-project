@@ -1,20 +1,29 @@
 // 云函数入口文件
-const cloud = require('../timer/node_modules/wx-server-sdk')
+const cloud = require('wx-server-sdk')
 
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 
 // 云函数入口函数
-exports.main = async(event, context) => {
+exports.main = async (event, context) => {
   try {
+    const { result: medicinename } = await cloud.callFunction({
+      name: "getMedicineName",
+    });
+    console.log('获取成功', medicinename);
+
+    if (!medicinename) {
+      throw new Error("药品名称为空");
+    }
+
     const result = await cloud.openapi.subscribeMessage.send({
-      touser: event.openid, //要推送给那个用户
-      page: 'miniprogram/projects/medicineRemind/pages/medicineRemind', //要跳转到那个小程序页面
-      data: {//推送的内容
+      touser: event.openid,
+      page: 'miniprogram/projects/medicineRemind/pages/medicineRemind',
+      data: {
         thing1: {
           value: '用药时间到了！'
         },
         thing2: {
-          value: event.medicinename
+          value: medicinename
         },
         time3: {
           value: '2024年1月11日 14:00'
@@ -26,12 +35,12 @@ exports.main = async(event, context) => {
           value: '点击开启用药提醒，从现在开始为健康打卡！'
         }
       },
-      templateId: 'HoD6Xp0jhBigBTxdsJwhmqIM7d9P1E0SA3k_BQgqX9k' //模板id
-    })
-    console.log(result)
-    return result.errCode
+      templateId: 'HoD6Xp0jhBigBTxdsJwhmqIM7d9P1E0SA3k_BQgqX9k'
+    });
+    console.log(result);
+    return result.errCode;
   } catch (err) {
-    console.log(err)
-    return err
+    console.log(err);
+    return err;
   }
-}
+};

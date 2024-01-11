@@ -1,5 +1,29 @@
 <!--projects/medicineRemind/pages/medicineRemind.wxml-->
-<button bindtap="getOpenId">获取用户openid</button>
-<button bindtap="shouquan">获取用户授权</button>
-<input placeholder="请输入药品名称" bindinput="inputMedicineName"></input>
-<button bindtap="sendtoUser">发送消息</button>
+<view class="contaner">
+  <view class="page">
+    <view class="box-1">
+      <view class="border-box">
+        <view class="title">开启通知</view>
+        <image src="../images/通知.png" class="icon" ></image>
+          <view class="content">
+          由于微信限制，小助手需要手动开启权限才能进行提醒，点击下方打开通知吧～
+          </view>
+          <button class="openInfo" bindtap="shouquan">打开通知</button>
+      </view>
+
+  </view>
+  <view class="input-box">
+  <input placeholder="请输入药品名称" class="medicine-button" bindinput="inputMedicineName"></input>
+  </view>
+  <view class="submit-box">
+        <button class="submit-button" bindtap="submitMedName">提交</button>
+      </view>
+  <view class="row">
+    <image class="bg"></image>
+    <view class="textbox">
+      <view class="title-row">今天也要注意健康！<image src="../images/collect-fill.png" class="icon" ></image></view>
+      <view class="info-row">^^</view>
+    </view>
+  </view>
+</view>
+</view>
