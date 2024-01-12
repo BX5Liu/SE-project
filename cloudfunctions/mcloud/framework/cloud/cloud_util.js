@@ -151,7 +151,6 @@ async function deleteFiles(list) {
 		fileList: list,
 	});
 }
-
 module.exports = {
 	log,
 	getTempFileURL,

@@ -89,7 +89,15 @@ module.exports = Behavior({
 		onPullDownRefresh: function () {
 			this._loadDetail();
 			wx.stopPullDownRefresh();
-		},
+    },
+    handleButtonClicks: async function (e) {
+      // 处理按钮点击事件的逻辑
+      console.log('Button Clicked!', e);
+      let content = await cloudHelper.Payment(e);      
+      console.log("good?");
+      // 示例：调用 pageHelper 中的方法处理页面跳转
+      // pageHelper.url(e, this);
+    },
 
 
 		/**

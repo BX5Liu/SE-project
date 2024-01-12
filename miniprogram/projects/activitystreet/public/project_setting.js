@@ -6,7 +6,7 @@ module.exports = { //activitystreet
 
 	// setup
 	SETUP_CONTENT_ITEMS: [
-		{ title: '关于我们', key: 'SETUP_CONTENT_ABOUT' },
+		{ title: '账单', key: 'SETUP_CONTENT_ABOUT' },
 	],
 
 	// 用户

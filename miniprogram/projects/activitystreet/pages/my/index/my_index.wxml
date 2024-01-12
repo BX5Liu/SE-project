@@ -88,7 +88,7 @@
 			<view class="item arrow" bindtap="url" data-url="../../about/index/about_index?key=SETUP_CONTENT_ABOUT">
 				<view class="content">
 					<text class="icon-service my-icon-project"></text>
-					<text class="text-black">关于我们</text>
+					<text class="text-black">账单</text>
 				</view>
 			</view>
 
