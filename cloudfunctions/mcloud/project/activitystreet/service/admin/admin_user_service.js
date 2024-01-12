@@ -85,12 +85,12 @@ class AdminUserService extends BaseProjectAdminService {
 	}
 
 	async statusUser(id, status, reason) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 	}
 
 	/**删除用户 */
 	async delUser(id) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 
 	}
 
@@ -109,7 +109,7 @@ class AdminUserService extends BaseProjectAdminService {
 	/**导出用户数据 */
 	async exportUserDataExcel(condition, fields) {
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 
 	}
 

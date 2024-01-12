@@ -132,6 +132,7 @@ class AdminActivityService extends BaseProjectAdminService {
 		joinForms,
 	}) {
 
+<<<<<<< Updated upstream
 		let data = {
       ACTIVITY_TITLE: title,
       ACTIVITY_CATE_ID: cateId,
@@ -153,11 +154,15 @@ class AdminActivityService extends BaseProjectAdminService {
     return {
       id
     };
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	//#############################   
 	/** 清空 */
 	async clearActivityAll(activityId) {
+<<<<<<< Updated upstream
     let where = {
       ACTIVITY_JOIN_ACTIVITY_ID: activityId
     }
@@ -166,12 +171,16 @@ class AdminActivityService extends BaseProjectAdminService {
 
     const activityServiceInstance = new ActivityService();
     await activityServiceInstance.statActivityJoin(activityId);
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 
 	}
 
 
 	/**删除数据 */
 	async delActivity(id) {
+<<<<<<< Updated upstream
     await this.clearActivityAll(id);
     let where = {
       _id: id
@@ -181,6 +190,9 @@ class AdminActivityService extends BaseProjectAdminService {
     return{
       effect
     };
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 
 	}
 	
@@ -189,8 +201,12 @@ class AdminActivityService extends BaseProjectAdminService {
 		id,
 		hasImageForms
 	}) {
+<<<<<<< Updated upstream
 
     await ActivityModel.editForms(id, 'ACTIVITY_FORMS','ACTIVITY_OBJ', hasImageForms);
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
  
 	}
 
@@ -218,6 +234,7 @@ class AdminActivityService extends BaseProjectAdminService {
 		joinForms
 	}) { 
 
+<<<<<<< Updated upstream
     let where = {
       _id: id
     }
@@ -243,10 +260,14 @@ class AdminActivityService extends BaseProjectAdminService {
     }
     
     await ActivityModel.edit(where, data);
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	/**修改状态 */
 	async statusActivity(id, status) {
+<<<<<<< Updated upstream
     let where = {
 			_id: id
 		}
@@ -258,6 +279,9 @@ class AdminActivityService extends BaseProjectAdminService {
 		};
 
 		await ActivityModel.edit(where, data);
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	//#############################
@@ -312,6 +336,7 @@ class AdminActivityService extends BaseProjectAdminService {
 	/**修改报名状态  
 	 */
 	async statusActivityJoin(activityJoinId, status, reason = '') {
+<<<<<<< Updated upstream
     //this.AppError('该功能暂不开放');
     let where = {
 			_id: activityJoinId
@@ -325,17 +350,25 @@ class AdminActivityService extends BaseProjectAdminService {
 		};
 
 		await ActivityJoinModel.edit(where, data);
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 
 	}
 
 
 	/** 取消某项目的所有报名记录 */
 	async cancelActivityJoinAll(activityId, reason) {
+<<<<<<< Updated upstream
 		this.AppError('该功能暂不开放');
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	/** 删除报名 */
 	async delActivityJoin(activityJoinId) {
+<<<<<<< Updated upstream
     let where = {
       _id: activityJoinId
     }
@@ -348,22 +381,37 @@ class AdminActivityService extends BaseProjectAdminService {
     return{
       effect
     };
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 
 	}
 
 	/** 自助签到码 */
 	async genActivitySelfCheckinQr(page, activityId) {
+<<<<<<< Updated upstream
 		this.AppError('该功能暂不开放');
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	/** 管理员按钮核销 */
 	async checkinActivityJoin(activityJoinId, flag) {
+<<<<<<< Updated upstream
 		this.AppError('该功能暂不开放');
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	/** 管理员扫码核销 */
 	async scanActivityJoin(activityId, code) {
+<<<<<<< Updated upstream
 		this.AppError('该功能暂不开放');
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	// #####################导出报名数据
@@ -382,7 +430,11 @@ class AdminActivityService extends BaseProjectAdminService {
 		activityId,
 		status
 	}) {
+<<<<<<< Updated upstream
 		this.AppError('该功能暂不开放');
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 
 	}
 }
