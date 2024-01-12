@@ -165,13 +165,30 @@ class AdminMgrService extends BaseProjectAdminService {
 		phone,
 		password
 	}) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		// this.AppError('该功能暂不开放');
+		// 判断是否存在
+		let where = {
+			ADMIN_NAME: name
+		}
+		let cnt = await AdminModel.count(where);
+		if (cnt > 0) this.AppError("该管理员账号已存在")
 
+		// 入库
+		let data = {
+			ADMIN_NAME: name,
+			ADMIN_DESC: desc,
+			ADMIN_PHONE: phone,
+			ADMIN_PASSWORD: password,
+		}
+		await AdminModel.insert(data);
+
+		return;
 	}
 
 	/** 修改状态 */
 	async statusMgr(id, status, myAdminId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		//this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('err');
 	} 
  
 
