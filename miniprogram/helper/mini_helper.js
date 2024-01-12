@@ -1,7 +1,5 @@
 /**
  * Notes: 软硬件系统相关函数
- * Ver : CCMiniCloud Framework 2.11.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
- * Date: 2022-01-25 29:00:00 
  */
 
 

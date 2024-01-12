@@ -1,8 +1,5 @@
 /**
- * Notes: 数据校验类库
- * Ver : CCMiniCloud Framework 2.0.15 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
- * Date: 2021-01-07 07:48:00 
- *  
+ * Notes: 数据校验类库  
  */
 const pageHelper = require('./page_helper.js');
 
