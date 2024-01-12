@@ -1,7 +1,5 @@
 /**
  * Notes: 用户实体
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
- * Date: 2020-10-14 19:20:00 
  */
 
 
