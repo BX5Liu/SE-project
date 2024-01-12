@@ -166,19 +166,8 @@ class AdminActivityService extends BaseProjectAdminService {
     
     ActivityJoinModel.del(where);
 
-    //const activityServiceInstance = new ActivityService();
-    //await activityServiceInstance.statActivityJoin(activityId);
-
-    
-    let whereActivity = {
-      _id: activityId
-    }
-
-    let dataCnt = {
-      ACTIVITY_JOIN_CNT: 0
-    }
-
-    ActivityModel.edit(whereActivity, dataCnt);
+    const activityServiceInstance = new ActivityService();
+    await activityServiceInstance.statActivityJoin(activityId);
 
 	}
 
@@ -355,8 +344,8 @@ class AdminActivityService extends BaseProjectAdminService {
     let activityJoin = await ActivityJoinModel.getOne(where, 'ACTIVITY_JOIN_ACTIVITY_ID');
 
     let effect = ActivityJoinModel.del(where);
-    //const activityServiceInstance = new ActivityService();
-    //await activityServiceInstance.statActivityJoin(activityJoin.ACTIVITY_JOIN_ACTIVITY_ID);
+    const activityServiceInstance = new ActivityService();
+    await activityServiceInstance.statActivityJoin(activityJoin.ACTIVITY_JOIN_ACTIVITY_ID);
 
     return{
       effect
@@ -395,7 +384,7 @@ class AdminActivityService extends BaseProjectAdminService {
 		activityId,
 		status
 	}) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放');
 
 	}
 }
