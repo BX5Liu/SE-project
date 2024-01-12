@@ -160,14 +160,40 @@ class AdminActivityService extends BaseProjectAdminService {
 	//#############################   
 	/** 清空 */
 	async clearActivityAll(activityId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+    let where = {
+      ACTIVITY_JOIN_ACTIVITY_ID: activityId
+    }
+    
+    ActivityJoinModel.del(where);
+
+    //const activityServiceInstance = new ActivityService();
+    //await activityServiceInstance.statActivityJoin(activityId);
+
+    
+    let whereActivity = {
+      _id: activityId
+    }
+
+    let dataCnt = {
+      ACTIVITY_JOIN_CNT: 0
+    }
+
+    ActivityModel.edit(whereActivity, dataCnt);
 
 	}
 
 
 	/**删除数据 */
 	async delActivity(id) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+    await this.clearActivityAll(id);
+    let where = {
+      _id: id
+    }
+
+    let effect = ActivityModel.del(where);
+    return{
+      effect
+    };
 
 	}
 	
@@ -176,7 +202,7 @@ class AdminActivityService extends BaseProjectAdminService {
 		id,
 		hasImageForms
 	}) {
-    
+
     await ActivityModel.editForms(id, 'ACTIVITY_FORMS','ACTIVITY_OBJ', hasImageForms);
  
 	}
@@ -234,7 +260,17 @@ class AdminActivityService extends BaseProjectAdminService {
 
 	/**修改状态 */
 	async statusActivity(id, status) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+    let where = {
+			_id: id
+		}
+		let activity = await ActivityModel.getOne(where);
+		if (!activity) return;
+
+		let data = {
+			ACTIVITY_STATUS: status
+		};
+
+		await ActivityModel.edit(where, data);
 	}
 
 	//#############################
@@ -289,35 +325,58 @@ class AdminActivityService extends BaseProjectAdminService {
 	/**修改报名状态  
 	 */
 	async statusActivityJoin(activityJoinId, status, reason = '') {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+    //this.AppError('该功能暂不开放');
+    let where = {
+			_id: activityJoinId
+		}
+		let activityJoin = await ActivityJoinModel.getOne(where);
+		if (!activityJoin) return;
+
+		let data = {
+      ACTIVITY_JOIN_STATUS: status,
+      ACTIVITY_JOIN_REASON: reason
+		};
+
+		await ActivityJoinModel.edit(where, data);
 
 	}
 
 
 	/** 取消某项目的所有报名记录 */
 	async cancelActivityJoinAll(activityId, reason) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放');
 	}
 
 	/** 删除报名 */
 	async delActivityJoin(activityJoinId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+    let where = {
+      _id: activityJoinId
+    }
+    let activityJoin = await ActivityJoinModel.getOne(where, 'ACTIVITY_JOIN_ACTIVITY_ID');
+
+    let effect = ActivityJoinModel.del(where);
+    //const activityServiceInstance = new ActivityService();
+    //await activityServiceInstance.statActivityJoin(activityJoin.ACTIVITY_JOIN_ACTIVITY_ID);
+
+    return{
+      effect
+    };
 
 	}
 
 	/** 自助签到码 */
 	async genActivitySelfCheckinQr(page, activityId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放');
 	}
 
 	/** 管理员按钮核销 */
 	async checkinActivityJoin(activityJoinId, flag) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放');
 	}
 
 	/** 管理员扫码核销 */
 	async scanActivityJoin(activityId, code) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放');
 	}
 
 	// #####################导出报名数据
