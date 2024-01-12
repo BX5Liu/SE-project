@@ -18,6 +18,7 @@ async function app(event, context) {
 		&& util.isDefined(event.attach)
 		&& event.attach
 	) {
+    console.log('Route Not Defined');
 		global.PID = event.attach;
 		const PayService = require('../../project/' + global.PID + '/service/pay_service.js');
 		console.log('##>> payBack,openId=' + event.userInfo.openId);

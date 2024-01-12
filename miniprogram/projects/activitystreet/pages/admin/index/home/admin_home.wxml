@@ -50,10 +50,10 @@
 	<!-- BOTTOM begin -->
 	<view class="comm-list menu  margin-top">
 
-		<view class="item arrow" bindtap="url" data-url="../../setup/about_list/admin_setup_about_list">
+		<view class="item arrow" bindtap="url" data-url="../../setup/list/bills_list">
 			<view class="content">
 				<text class="icon-edit text-darkgreen"></text>
-				<text class="text-black">编辑 - 关于我们</text>
+				<text class="text-black">账单发布</text>
 			</view>
 		</view>
 

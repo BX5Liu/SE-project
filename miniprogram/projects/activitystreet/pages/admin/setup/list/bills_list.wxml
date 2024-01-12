@@ -1,0 +1,89 @@
+<block wx:if="{{isAdmin&&isLoad}}">
+	<cmpt-comm-list source='admin' type="admin-activity-list" search="{{search||''}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="admin/activity_list" sortMenusDefaultIndex="0" topBottom="50" bind:list="_getDataFromDatabase">
+
+		<view slot="searchEnd"> 
+			<button bindtap="url" data-url="../add/bills_add" class="btn radius bg-admin text-white margin-right-s"><text class="icon-roundadd margin-right-xxs"></text>添加新{{ACTIVITY_NAME}}</button>
+		</view>
+		<!-- List Begin -->
+		<view class="admin-comm-list">
+			<view wx:if="{{dataList && dataList.length }}" class="load text-grey">共有{{dataList.length}}条符合条件记录</view>
+
+			<view class="item" wx:for="{{dataList}}" wx:key="_id">
+				<view class="no">{{index+1}}</view>
+				<view class="header">
+				
+					<view class="right">
+						<text wx:if="{{item.BILL_STATUS==1}}" class="text-black">「正常」</text>
+						<text wx:elif="{{item.BILL_STATUS==0}}" class="text-orange">「截止」</text>
+					</view>
+				</view>
+
+				<view class="info">
+						<view class="info-item">
+						<view class="title">排序号</view>
+						<view class="mao">：</view>
+						<view class="content">{{item.BILL_ORDER}} <text class="margin-left-xxs text-grey"></text></view>
+					</view>
+
+					<view class="info-item">
+						<view class="title">可交时间</view>
+						<view class="mao">：</view>
+						<view class="content">{{item.BILL_START}}～{{item.BILL_STOP}}</view>
+					</view>
+
+					<view class="info-item">
+						<view class="title">截止时间</view>
+						<view class="mao">：</view>
+						<view class="content text-orange">{{item.BILL_STOP}}</view>
+					</view>
+
+					<view class="info-item">
+						<view class="title">已交人数</view>
+						<view class="mao">：</view>
+						<view class="content">{{item.BILL_COMPLETE}}<text class="margin-left-xxs margin-right-xxs">/</text>{{item.BILL_MAX_CNT+'人'}} <text class="margin-left text-grey"></text></view>
+					</view>
+				
+
+					<view class="info-item">
+						<view class="title">参数设定</view>
+						<view class="mao">：</view>
+						<view class="content">
+							<text wx:if="{{item.BILL_STATUS==1}}">不可退款</text>
+							<text wx:if="{{item.BILL_STATUS==0}}">随时可退款</text>
+							<!--<text class="margin-right-s margin-left-s">/</text><text>{{item.ACTIVITY_IS_MENU?'公开展示报名名单':'不公开展示报名名单'}}</text>-->
+						</view>
+					</view>
+
+					<!-- <view class="info-item">
+						<view class="title">创建</view>
+						<view class="mao">：</view>
+						<view class="content">{{item.ACTIVITY_ADD_TIME}}</view>
+					</view> -->
+
+					<view class="oprt">
+						<!-- <view bindtap="url" data-url="../edit/admin_activity_edit?id={{item._id}}" class="btn round margin-right-s"><text class="icon-edit margin-right-xxs"></text>编辑</view> -->
+
+						<view bindtap="bindJoinMoreTap" data-id="{{item._id}}" data-title="{{item.ACTIVITY_TITLE}}" class="btn margin-right-s">名单与核销</view>
+
+						<view bindtap="bindStatusMoreTap" data-id="{{item._id}}" class="btn margin-right-s">删除</view>
+
+
+						<!--
+						<view bindtap="url" data-url="../../../activity/detail/activity_detail?id={{item._id}}" class="btn margin-right-s">预览</view>-->
+
+					</view>
+				</view>
+			</view>
+
+		</view>
+		<!-- List END -->
+
+		<!--load begin-->
+		<import src="../../../../../../tpls/public/list_load_tpl.wxml" />
+		<template is="listLoadTpl" data="{{dataList,skin:'text-grey'}}" />
+		<!--load end-->
+
+
+	</cmpt-comm-list>
+
+</block>

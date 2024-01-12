@@ -90,7 +90,7 @@ function callCloud(route, params = {}, options) {
 	if (route.indexOf('admin/') > -1) {
 		let admin = cacheHelper.get(constants.CACHE_ADMIN);
 		if (admin && admin.token) token = admin.token;
-
+    console.log(token)
 	} else if (route.indexOf('work/') > -1) { 
 		let work = cacheHelper.get(constants.CACHE_WORK);
 		if (work && work.token) token = work.token;
@@ -104,7 +104,8 @@ function callCloud(route, params = {}, options) {
 	return new Promise(function (resolve, reject) {
 
 		let PID = pageHelper.getPID();
-
+    console.log(PID)
+    console.log(params)
 		wx.cloud.callFunction({
 			name: 'mcloud',
 			data: {
@@ -447,6 +448,8 @@ async function transTempPicOne(img, dir, id, isCheck = true) {
 
 }
 
+
+ 
 module.exports = {
 	CODE,
 	dataList,
@@ -459,5 +462,5 @@ module.exports = {
 	transCoverTempPics,
 	transFormsTempPics,
 	getTempFileURLOne,
-	transTempPicOne
+  transTempPicOne
 }
