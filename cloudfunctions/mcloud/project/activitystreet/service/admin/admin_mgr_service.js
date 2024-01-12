@@ -153,6 +153,7 @@ class AdminMgrService extends BaseProjectAdminService {
 
 	/** 删除管理员 */
 	async delMgr(id, myAdminId) {
+<<<<<<< Updated upstream
 		let where = {
 			_id: id,
 		}
@@ -160,6 +161,9 @@ class AdminMgrService extends BaseProjectAdminService {
 		return {
 			effect
 		};
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	/** 添加新的管理员 */
@@ -189,6 +193,7 @@ class AdminMgrService extends BaseProjectAdminService {
 	}
 
 	/** 修改状态 */
+<<<<<<< Updated upstream
 	async statusMgr(id, status) {
 		let where = {
 			_id: id
@@ -201,6 +206,11 @@ class AdminMgrService extends BaseProjectAdminService {
 		};
 
 		await AdminModel.edit(where, data);
+=======
+	async statusMgr(id, status, myAdminId) {
+		//this.AppError('[街道社区]该功能暂不开放 ');
+		this.AppError('err');
+>>>>>>> Stashed changes
 	} 
  
 
@@ -236,6 +246,7 @@ class AdminMgrService extends BaseProjectAdminService {
 			_id: id
 		}
 
+<<<<<<< Updated upstream
 		let admin = await AdminModel.getOne(where);
 		if (!admin) return;
 
@@ -247,6 +258,9 @@ class AdminMgrService extends BaseProjectAdminService {
 		};
 
 		await AdminModel.edit(where, data);
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 
 	/** 修改自身密码 */
@@ -256,6 +270,7 @@ class AdminMgrService extends BaseProjectAdminService {
 			ADMIN_PASSWORD: md5Lib.md5(oldPassword)
 		}
 
+<<<<<<< Updated upstream
 		let admin = await AdminModel.getOne(whereOldPwd);
 		if (!admin) this.AppError('旧密码输入错误')
 
@@ -268,6 +283,9 @@ class AdminMgrService extends BaseProjectAdminService {
 		};
 
 		await AdminModel.edit(where, data);
+=======
+		this.AppError('[街道社区]该功能暂不开放 ');
+>>>>>>> Stashed changes
 	}
 }
 

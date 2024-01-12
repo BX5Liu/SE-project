@@ -168,7 +168,7 @@ class AdminActivityService extends BaseProjectAdminService {
 		joinForms
 	}) { 
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放  ');
 	}
 
 
@@ -225,28 +225,28 @@ class AdminActivityService extends BaseProjectAdminService {
 
 	/** 取消某项目的所有报名记录 */
 	async cancelActivityJoinAll(activityId, reason) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放  ');
 	}
 
 	/** 删除报名 */
 	async delActivityJoin(activityJoinId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放  ');
 
 	}
 
 	/** 自助签到码 */
 	async genActivitySelfCheckinQr(page, activityId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放  ');
 	}
 
 	/** 管理员按钮核销 */
 	async checkinActivityJoin(activityJoinId, flag) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放  ');
 	}
 
 	/** 管理员扫码核销 */
 	async scanActivityJoin(activityId, code) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放  ');
 	}
 
 	// #####################导出报名数据
@@ -265,7 +265,7 @@ class AdminActivityService extends BaseProjectAdminService {
 		activityId,
 		status
 	}) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放  ');
 
 	}
 }

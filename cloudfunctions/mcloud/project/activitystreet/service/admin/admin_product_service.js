@@ -14,7 +14,7 @@ class AdminProductService extends BaseProjectAdminService {
 
 	/** 推荐首页SETUP */
 	async vouchProductSetup(id, vouch) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 	}
 
 	/**添加 */
@@ -27,12 +27,12 @@ class AdminProductService extends BaseProjectAdminService {
 	}) {
 
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 	}
 
 	/**删除数据 */
 	async delProduct(id) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 
 	}
 
@@ -54,7 +54,7 @@ class AdminProductService extends BaseProjectAdminService {
 		id,
 		hasImageForms
 	}) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 	}
 
 
@@ -68,7 +68,7 @@ class AdminProductService extends BaseProjectAdminService {
 		forms,
 	}) {
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 	}
 
 	/**取得分页列表 */
@@ -131,18 +131,18 @@ class AdminProductService extends BaseProjectAdminService {
 
 	/**修改状态 */
 	async statusProduct(id, status) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 	}
 
 	/**置顶与排序设定 */
 	async sortProduct(id, sort) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 
 	}
 
 	/**首页设定 */
 	async vouchProduct(id, vouch) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 	}
 }
 

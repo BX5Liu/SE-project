@@ -107,12 +107,12 @@ class AdminEnrollService extends BaseProjectAdminService {
 
     /**置顶与排序设定 */
     async sortEnroll(id, sort) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
     }
 
     /**推荐设定 */
     async vouchEnroll(id, vouch) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
     }
 
     /**添加 */
@@ -128,12 +128,12 @@ class AdminEnrollService extends BaseProjectAdminService {
         joinForms,
     }) {
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
     }
 
     /**删除数据 */
     async delEnroll(id) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 
     }
 
@@ -156,7 +156,7 @@ class AdminEnrollService extends BaseProjectAdminService {
         id,
         hasImageForms
     }) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 
     }
 
@@ -176,12 +176,12 @@ class AdminEnrollService extends BaseProjectAdminService {
         joinForms
     }) {
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
     }
 
     /**修改状态 */
     async statusEnroll(id, status) {
-        this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+        this.AppError('[街道社区]该功能暂不开放 ');
     }
 
 
@@ -234,12 +234,12 @@ class AdminEnrollService extends BaseProjectAdminService {
 
     /** 清空 */
     async clearEnrollAll(enrollId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
     }
 
     /** 删除打卡 */
     async delEnrollJoin(enrollJoinId) {
-        this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+        this.AppError('[街道社区]该功能暂不开放 ');
 
     }
 
@@ -260,7 +260,7 @@ class AdminEnrollService extends BaseProjectAdminService {
         start,
         end,
     }) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('[街道社区]该功能暂不开放 ');
 
     }
 
