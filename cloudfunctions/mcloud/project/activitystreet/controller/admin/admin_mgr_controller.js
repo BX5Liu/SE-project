@@ -57,7 +57,7 @@ class AdminMgrController extends BaseProjectAdminController {
 		let input = this.validateData(rules);
 
 		let service = new AdminMgrService();
-		await service.statusMgr(input.id, input.status, this._admin.ADMIN_PHONE);
+		await service.statusMgr(input.id, input.status);
 	}
 
 	/** 管理员列表 */
@@ -136,7 +136,7 @@ class AdminMgrController extends BaseProjectAdminController {
 		await contentCheck.checkTextMultiAdmin(input);
 
 		let service = new AdminMgrService();
-		await service.editMgr(input.id, input);
+		await service.editMgr(input);
 	}
 
 	/** 修改自己的密码 */

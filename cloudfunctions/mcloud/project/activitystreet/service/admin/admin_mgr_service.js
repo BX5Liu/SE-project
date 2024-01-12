@@ -153,7 +153,13 @@ class AdminMgrService extends BaseProjectAdminService {
 
 	/** 删除管理员 */
 	async delMgr(id, myAdminId) {
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		let where = {
+			_id: id,
+		}
+		let effect = await AdminModel.del(where);
+		return {
+			effect
+		};
 	}
 
 	/** 添加新的管理员 */
@@ -163,7 +169,6 @@ class AdminMgrService extends BaseProjectAdminService {
 		phone,
 		password
 	}) {
-		// this.AppError('该功能暂不开放');
 		// 判断是否存在
 		let where = {
 			ADMIN_NAME: name
@@ -176,7 +181,7 @@ class AdminMgrService extends BaseProjectAdminService {
 			ADMIN_NAME: name,
 			ADMIN_DESC: desc,
 			ADMIN_PHONE: phone,
-			ADMIN_PASSWORD: password,
+			ADMIN_PASSWORD: md5Lib.md5(password),
 		}
 		await AdminModel.insert(data);
 
@@ -184,9 +189,18 @@ class AdminMgrService extends BaseProjectAdminService {
 	}
 
 	/** 修改状态 */
-	async statusMgr(id, status, myAdminId) {
-		//this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
-		this.AppError('err');
+	async statusMgr(id, status) {
+		let where = {
+			_id: id
+		}
+		let admin = await AdminModel.getOne(where);
+		if (!admin) return;
+
+		let data = {
+			ADMIN_STATUS: status
+		};
+
+		await AdminModel.edit(where, data);
 	} 
  
 
@@ -204,20 +218,56 @@ class AdminMgrService extends BaseProjectAdminService {
 	}
 
 	/** 修改管理员 */
-	async editMgr(id, {
+	async editMgr({
+		id,
 		name,
 		desc,
 		phone,
 		password
 	}) {
+		let whereName = {
+			ADMIN_NAME: name,
+			_id: ['<>', id]
+		}
+		let cnt = await AdminModel.count(whereName);
+		if (cnt > 0) this.AppError('该账号已注册');
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		let where = {
+			_id: id
+		}
+
+		let admin = await AdminModel.getOne(where);
+		if (!admin) return;
+
+		let data = {
+			ADMIN_NAME: name,
+			ADMIN_DESC: desc,
+			ADMIN_PHONE: phone,
+			ADMIN_PASSWORD: md5Lib.md5(password),
+		};
+
+		await AdminModel.edit(where, data);
 	}
 
 	/** 修改自身密码 */
 	async pwdtMgr(adminId, oldPassword, password) {
+		let whereOldPwd = {
+			_id: adminId,
+			ADMIN_PASSWORD: md5Lib.md5(oldPassword)
+		}
 
-		this.AppError('[街道社区]该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		let admin = await AdminModel.getOne(whereOldPwd);
+		if (!admin) this.AppError('旧密码输入错误')
+
+		let where = {
+			_id: adminId
+		}
+
+		let data = {
+			ADMIN_PASSWORD: md5Lib.md5(password)
+		};
+
+		await AdminModel.edit(where, data);
 	}
 }
 
